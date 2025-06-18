@@ -13,7 +13,7 @@ Uma aplicação simples de Todo List construída com Deno e Oak framework.
 - [SQLite](https://deno.land/x/sqlite) - Banco de dados SQLite
 - [UUID](https://deno.land/std/uuid) - Geração de IDs únicos
 
-## 📋 Versões
+## 📋 Versões das Libs
 
 - Deno: 1.40.0 ou superior
 - Oak: v12.6.0
