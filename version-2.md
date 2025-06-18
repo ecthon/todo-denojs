@@ -110,6 +110,6 @@ deno task dev
 
 ---
 
-**Data da Release**: Dezembro 2024  
+**Data da Release**: Junho 2025  
 **Compatibilidade**: Deno 1.40.0+  
 **Breaking Changes**: Nenhuma (API mantida compatível) 
