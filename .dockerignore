@@ -1,0 +1,43 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de desenvolvimento
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Banco de dados local (será criado no container)
+todos.db
+*.db
+
+# Arquivos de teste
+test/
+tests/
+__tests__/
+
+# Documentação
+README.md
+*.md
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore 

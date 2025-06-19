@@ -1,3 +1,4 @@
+/// <reference lib="deno.ns" />
 import { Application } from "./deps.ts";
 import router from "./routes/todos.ts";
 
@@ -20,5 +21,7 @@ app.use(async (ctx, next) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log("🦖 Server running on http://localhost:8000");
-await app.listen({ port: 8000 });
+// Usar a porta do ambiente ou 8000 como padrão
+const port = parseInt(Deno.env.get("PORT") || "8000");
+console.log(`🦖 Server running on http://localhost:${port}`);
+await app.listen({ port });
