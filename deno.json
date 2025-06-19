@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "lib": ["dom", "esnext"]
+    },
+    "tasks": {
+      "start": "deno run -A src/mod.ts",
+      "seed": "deno run -A src/seed.ts",
+      "dev": "deno run --watch -A src/mod.ts"
+    },
+    "lint": {
+      "files": {
+        "exclude": ["db.sqlite", "todos.db"]
+      }
+    }
+  }
+  
