@@ -46,3 +46,40 @@ export const toggleTodo = (ctx: Context) => {
 
   ctx.response.body = { id, completed: !!completed };
 };
+
+export const deleteTodo = (ctx: Context) => {
+  const url = new URL(ctx.request.url);
+  const id = url.pathname.split('/')[2]; // /todos/:id
+  
+  if (!id) {
+    ctx.response.status = 400;
+    ctx.response.body = { message: "ID is required" };
+    return;
+  }
+
+  db.query("DELETE FROM todos WHERE id = ?", [id]);
+  ctx.response.status = 204;
+};
+
+export const updateTodo = async (ctx: Context) => {
+  const url = new URL(ctx.request.url);
+  const id = url.pathname.split('/')[2]; // /todos/:id
+  
+  if (!id) {
+    ctx.response.status = 400;
+    ctx.response.body = { message: "ID is required" };
+    return;
+  }
+
+  const { title, completed } = await ctx.request.body({ type: "json" }).value;
+  
+  // Update both title and completed if provided
+  if (completed !== undefined) {
+    db.query("UPDATE todos SET title = ?, completed = ? WHERE id = ?", [title, completed ? 1 : 0, id]);
+    ctx.response.body = { id, title, completed };
+  } else {
+    // Only update title if completed is not provided
+    db.query("UPDATE todos SET title = ? WHERE id = ?", [title, id]);
+    ctx.response.body = { id, title };
+  }
+};
