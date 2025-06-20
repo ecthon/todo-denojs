@@ -1,5 +1,5 @@
-# Usar a imagem oficial do Deno com versão estável
-FROM denoland/deno:1.41-alpine
+# Usar a imagem oficial do Deno com versão mais recente
+FROM denoland/deno:1.42-alpine
 
 # Definir diretório de trabalho
 WORKDIR /app
