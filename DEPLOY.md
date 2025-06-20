@@ -51,6 +51,20 @@ Você pode ver os logs da aplicação no dashboard do Render em tempo real.
 
 ## Troubleshooting
 
+### Erro de Versão do Deno
+
+Se você encontrar o erro `denoland/deno:1.40-alpine: not found`, isso significa que a versão específica não está disponível. Soluções:
+
+1. **Dockerfile atualizado**: O Dockerfile agora usa `denoland/deno:alpine` (versão latest)
+2. **Dockerfile alternativo**: Se preferir uma versão específica, use `Dockerfile.alternative`:
+   ```bash
+   # Renomeie o arquivo
+   mv Dockerfile Dockerfile.backup
+   mv Dockerfile.alternative Dockerfile
+   ```
+
+### Outros Problemas
+
 Se o deploy falhar:
 
 1. Verifique os logs no Render Dashboard
@@ -59,4 +73,20 @@ Se o deploy falhar:
    docker build -t todo-denojs .
    docker run -p 8000:8000 todo-denojs
    ```
-3. Certifique-se de que todas as dependências estão no `deps.ts` 
+3. Certifique-se de que todas as dependências estão no `deps.ts`
+4. Verifique se o repositório está público ou se o Render tem acesso
+
+### Teste Local
+
+Para testar o Dockerfile localmente:
+
+```bash
+# Build da imagem
+docker build -t todo-denojs .
+
+# Executar o container
+docker run -p 8000:8000 todo-denojs
+
+# Testar a API
+curl http://localhost:8000/todos
+``` 
