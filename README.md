@@ -15,7 +15,7 @@ Uma aplicação simples de Todo List construída com Deno e Oak framework.
 
 ## 📋 Versões das Libs
 
-- Deno: 1.40.0 ou superior
+- Deno: 1.41.0 ou superior
 - Oak: v12.6.0
 - SQLite: v3.9.1
 - UUID: v0.224.0
@@ -26,6 +26,8 @@ Uma aplicação simples de Todo List construída com Deno e Oak framework.
 - Version 1.0 - Versão inicial com armazenamento em memória
 
 ## 🛠️ Como Executar
+
+### Método Local (Recomendado para Desenvolvimento)
 
 1. Instale o Deno seguindo as instruções em [deno.land](https://deno.land/#installation)
 
@@ -56,6 +58,32 @@ deno run -A src/check_seed.ts
 
 O servidor estará rodando em `http://localhost:8000`
 
+### 🐳 Método Docker (Recomendado para Produção)
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/ecthon/todo-denojs
+cd todo-deno
+```
+
+2. Build da imagem Docker:
+```bash
+docker build -t todo-denojs .
+```
+
+3. Executar o container:
+```bash
+docker run -d --name todo-denojs -p 8000:8000 todo-denojs
+```
+
+4. (Opcional) Para testar o build automaticamente:
+```bash
+chmod +x test-docker.sh
+./test-docker.sh
+```
+
+**Nota:** Se você encontrar erros relacionados a versões do Deno no Docker, o problema foi corrigido nas versões mais recentes. O Dockerfile agora usa `denoland/deno:1.41-alpine` que é uma versão estável e disponível.
+
 ### 🚀 Tasks Disponíveis
 
 - `deno task start` - Executa a aplicação
@@ -81,6 +109,9 @@ todo-deno/
 ├── todos.db              # Arquivo do banco de dados SQLite
 ├── deno.json             # Configuração do Deno
 ├── deno.lock             # Lock de dependências
+├── Dockerfile            # Configuração do Docker
+├── .dockerignore         # Arquivos ignorados pelo Docker
+├── test-docker.sh        # Script de teste do Docker
 ├── version-2.md          # Documentação da versão 2.0
 └── README.md             # Documentação principal
 ```
@@ -122,4 +153,3 @@ Feito com Deno e muito carinho para a comunidade open source!
 - [GitHub Sponsors](https://github.com/sponsors/ecthon)
 
 Se você gostou do projeto, considere apoiar meu trabalho através do GitHub Sponsors! 🌟
-

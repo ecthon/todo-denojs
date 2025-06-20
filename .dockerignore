@@ -1,12 +1,18 @@
-# Arquivos do sistema
+# Arquivos de banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de sistema
 .DS_Store
 Thumbs.db
-
-# Arquivos de desenvolvimento
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Arquivos de IDE
 .vscode/
@@ -14,29 +20,28 @@ yarn-error.log*
 *.swp
 *.swo
 
-# Arquivos de log
-*.log
+# Arquivos de controle de versão
+.git/
+.gitignore
 
-# Arquivos temporários
-*.tmp
-*.temp
+# Documentação
+README.md
+DEPLOY.md
+version-2.md
 
-# Banco de dados local (será criado no container)
-todos.db
-*.db
+# Dockerfiles alternativos
+Dockerfile.alternative
+
+# Arquivos de desenvolvimento
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Arquivos de teste
 test/
 tests/
 __tests__/
-
-# Documentação
-README.md
-*.md
-
-# Git
-.git/
-.gitignore
 
 # Docker
 Dockerfile
